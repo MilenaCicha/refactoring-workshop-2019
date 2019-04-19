@@ -38,15 +38,15 @@ void Segments::addSegment(int x, int y)
     m_segments.emplace_back(Position{x, y});
 }
 
-bool Segments::isCollision(int x, int y) const
+bool Segments::isCollision(Position position) const
 {
     return m_segments.end() !=  std::find_if(m_segments.cbegin(), m_segments.cend(),
-        [x, y](auto const& segment){ return segment.x == x and segment.y == y; });
+        [position](auto const& segment){ return segment==position;});
 }
 
-void Segments::addHead(int x, int y)
+void Segments::addHead(Position position)
 {
-    m_segments.push_front(Position{x, y});
+    m_segments.push_front(position);
 }
 
 std::pair<int, int> Segments::removeTail()

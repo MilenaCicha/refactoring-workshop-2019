@@ -11,4 +11,7 @@ struct Position
     bool operator==(Position const& rhs) const { return x == rhs.x and y == rhs.y; }
 };
 
+
+
 } // namespace Snake
+
